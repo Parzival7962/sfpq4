@@ -42,7 +42,8 @@
             This equates to an average farm income gain across all GM crops grown in this period of about $112/hectare. In 2020, the farm income gains were $18.8 billion (average of $103/ha). 
             The cumulative farm income gains have been divided 52% to farmers in developing countries and 48% to farmers in developed countries. Seventy-two percent of the gains have derived 
             from yield and production gains with the remaining 28% coming from cost savings.</p>
-
+        <canvas id="mycanvas"></canvas> 
+            
         <h2>sources<h2>
             
         <p>Brookes, Graham. “Farm Income and Production Impacts from the Use of Genetically Modified (GM) Crop Technology 1996-2020.” GM Crops & Food, vol. 13, no. 1, 19 Aug. 2022, pp. 171–195. 
@@ -51,7 +52,120 @@
             Julia M, and Judith L Fridovich-Keil. “Genetically Modified Organism .” Encyclopædia Britannica, Britannica, 26 Apr. 2018, <a href=”www.britannica.com/science/genetically-modified-organism”>www.britannica.com/science/genetically-modified-organism</a>.Smith , 
             Mike. “Genetic Engineering | Talking Glossary of Genetic Terms | NHGRI.” Genome.gov, National Human Genome Research Institute, 2019, <a href=”www.genome.gov/genetics-glossary”>www.genome.gov/genetics-glossary</a>/Genetic-Engineering.Woolsey , 
             GL. “GMO Timeline: A History of Genetically Modified Foods | Green America.” Green America, 2013, <a href=”www.greenamerica.org/blog/gmo-timeline-history-genetically-modified-foods”>www.greenamerica.org/blog/gmo-timeline-history-genetically-modified-foods</a></p>
-
+        
+  
+ 
+        <!-- Include the processing.js library -->
+        <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+        <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+        <script>
+        var programCode = function(processingInstance) {
+            with (processingInstance) {
+                size(400, 400); 
+                frameRate(60);
+                
+                textAlign(CENTER, CENTER);
+                rectMode(CENTER);
+                var i = 0;
+                var j = 0;
+                var s = 0;
+                
+                var q1 = ["GM crops kill you:", true];
+                var q2 = ["GM Stands for:", false];
+                var q3 = ["Genetic Modifications have caused:", false];
+                var q4 = ["Genetic Engineering is Genetic Modification", false];
+                var q5 = ["Are GMOs bad?", false];
+                var q6 = ["", false];
+                var q = [q1, q2, q3, q4, q5, q6]
+                
+                
+                var Button = function(n, l, x, a){
+                    this.n = n || null;
+                    this.l = l || "false";
+                    this.x = x || 100;
+                    this.y = 324;
+                    this.iC = a || false;
+                    
+                };
+                
+                Button.prototype.draw = function() {
+                    stroke(255, 255, 255);
+                    fill(0, 0, 0);
+                    rect(this.x, this.y, 190, 140);
+                    textSize(20);
+                    fill(255, 255, 255);
+                    text(this.l, this.x, this.y);
+                    
+                };
+                
+                Button.prototype.moused = function(){
+                    if(mouseX >= this.x-95 && mouseX <= this.x+95){if(mouseY >= this.y-70 && mouseY <= this.y+70){
+                            if(this.iC){
+                                s++;
+                            }
+                            
+                            q[i][1] = false; 
+                            q[i+1][1] = true;
+                            j += 2;
+                            i++;
+                            
+                        }
+                    }
+                };
+                
+                var b1 = new Button(1,"true", 300, false);
+                var b2 = new Button(1,"false", 100, true);
+                var b3 = new Button(2,"Genetic Modification", 300, true);
+                var b4 = new Button(2,"Good Men", 100, false);
+                var b5 = new Button(3,"decrease in economy", 300, false);
+                var b6 = new Button(3,"increase in economy", 100, true);
+                var b7 = new Button(4,"true", 300, true);
+                var b8 = new Button(4,"false", 100, false);
+                var b9 = new Button(5,"true", 300, false);
+                var b10 = new Button(5,"false", 100, true);
+                var b =[b1,b2,b3,b4,b5,b6,b7,b8,b9,b10];
+                
+                draw = function(){
+                    background(0, 0, 0);
+                    stroke(255, 255, 255);
+                    fill(0, 0 ,0)
+                    rect(200, 200, 390, 390)
+                    
+                    textSize(20);
+                    fill(255,255,255)
+                    
+                    if( !q6[1]){
+                        text(q[i][0], 200, 100)
+                        b[j].draw();
+                        b[j+1].draw();
+                    }
+                    else{
+                        text("You got:", 200, 200);
+                        text(s, 200, 220);
+                        text("questions correct", 200, 240);
+                    }
+                    
+                    
+                    
+                }
+                
+                mouseClicked = function(){
+                    if(q[i][1]){
+                        b[j].moused();
+                        b[j+1].moused();
+                        
+                    }
+                    
+                    
+                }
+};};
+            
+        // Get the canvas that ProcessingJS will use
+        var canvas = document.getElementById("mycanvas"); 
+        // Pass the function to ProcessingJS constructor
+        var processingInstance = new Processing(canvas, programCode); 
+            
+        </script>
         
     </body>
 </html>
