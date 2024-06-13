@@ -5,25 +5,34 @@
     </head>
     <body>
         <style>
-            body{
+            body {
                 
                 background-color:black;
                 color:white;
                 font-family:sans-serif;
             }
-            img{
+            img {
                 width:800px;
                 
             }
-            
+            h1 {
+                text-size: 4em;
+                
+            }
+            h2{
+                text-size: 2em;
+            }
+            p {
+                text-size: 30px;
+            }
           
         </style>
         
-        <h1>Science Final Project Q4: All About GMOs!</h1
+        <h1> Science Final Project Q4: All About GMOs!</h1
         
-        <h2> what is genetic engineering?:<h2>
+        <h2> What is Genetic Engineering?:<h2>
             
-        <p>Genetic engineering (also called genetic modification) is a process that uses laboratory-based technologies to alter the DNA makeup of an organism. 
+        <p> Genetic engineering (also called genetic modification) is a process that uses laboratory-based technologies to alter the DNA makeup of an organism. 
             This may involve changing a single base pair (A-T or C-G), deleting a region of DNA or adding a new segment of DNA. For example, genetic engineering 
             may involve adding a gene from one species to an organism from a different species to produce a desired trait.</p>
             
@@ -31,29 +40,29 @@
 
         <img src="https://ag.purdue.edu/gmos/_media/what-are-gmos.png">
             
-        <p>GMOs are organisms whose genome has been engineered in the laboratory in order to favor the expression of desired physiological traits or the generation of 
+        <p> GMOs are organisms whose genome has been engineered in the laboratory in order to favor the expression of desired physiological traits or the generation of 
             desired biological products. In conventional livestock production, crop farming, and even pet breeding, In genetic modification, recombinant genetic technologies 
             are employed to produce organisms whose genomes have been precisely altered at the molecular level, usually by the inclusion of genes from unrelated species of 
             organisms that code for traits that would not be obtained easily through conventional selective breeding. Genetically modified organisms (GMOs) are produced using 
             scientific methods that include recombinant DNA technology and reproductive cloning.</p>
 
-        <h2>What role does genetic engineering play in agriculture and the production of genetically modified (GM) crops?:</h2>
+        <h2> What Role Does Genetic Engineering Play in Agriculture and the Production of Genetically Modified (GM) Crops?:</h2>
             
-        <p>Most of the GMO crops grown today were developed to help farmers prevent crop loss. The three most common traits found in GMO crops are, Resistance to insect damage, 
+        <p> Most of the GMO crops grown today were developed to help farmers prevent crop loss. The three most common traits found in GMO crops are, Resistance to insect damage, 
             Tolerance to herbicides, Resistance to plant viruses.</p>
 
-        <h2>What are the economic impacts of genetic engineering on biotech startups and established companies?:<h2>
+        <h2>What are the Economic Impacts of Genetic Engineering on Biotech Startups and Established Companies?:<h2>
             
-        <p>Over the period 1996 to 2020, the economic benefits have been significant with farm incomes for those using the technology having increased by $261.3 billion US dollars. 
+        <p> Over the period 1996 to 2020, the economic benefits have been significant with farm incomes for those using the technology having increased by $261.3 billion US dollars. 
             This equates to an average farm income gain across all GM crops grown in this period of about $112/hectare. In 2020, the farm income gains were $18.8 billion (average of $103/ha). 
             The cumulative farm income gains have been divided 52% to farmers in developing countries and 48% to farmers in developed countries. Seventy-two percent of the gains have derived 
             from yield and production gains with the remaining 28% coming from cost savings.</p>
 
         <canvas id="mycanvas"></canvas>
             
-        <h2>sources<h2>
+        <h2>Sources<h2>
             
-        <p>Brookes, Graham. “Farm Income and Production Impacts from the Use of Genetically Modified (GM) Crop Technology 1996-2020.” GM Crops & Food, vol. 13, no. 1, 19 Aug. 2022, pp. 171–195. 
+        <p> Brookes, Graham. “Farm Income and Production Impacts from the Use of Genetically Modified (GM) Crop Technology 1996-2020.” GM Crops & Food, vol. 13, no. 1, 19 Aug. 2022, pp. 171–195. 
             National Library of Medicine, www.ncbi.nlm.nih.gov/pmc/articles/PMC9397136/, <a href=”https://doi.org/10.1080/21645698.2022.2105626”> https://doi.org/10.1080/21645698.2022.2105626</a>.
             Nutrition, Center for Food Safety and Applied. “How GMO Crops Impact Our World.” FDA, 29 Sept. 2020, <a href=”www.fda.gov/food/agricultural-biotechnology/how-gmo-crops-impact-our-world#:~:text=Most%20of%20the%20GMO%20crops”>www.fda.gov/food/agricultural-biotechnology/how-gmo-crops-impact-our-world#:~:text=Most%20of%20the%20GMO%20crops</a>. 
             Julia M, and Judith L Fridovich-Keil. “Genetically Modified Organism .” Encyclopædia Britannica, Britannica, 26 Apr. 2018, <a href=”www.britannica.com/science/genetically-modified-organism”>www.britannica.com/science/genetically-modified-organism</a>.Smith , 
@@ -68,7 +77,7 @@
         <script>
         var programCode = function(processingInstance) {
             with (processingInstance) {
-                size(800, 800); 
+                size(600, 600); 
                 frameRate(60);
                 
                 textAlign(CENTER, CENTER);
@@ -89,8 +98,8 @@
                 var Button = function(n, l, x, a){
                     this.n = n || null;
                     this.l = l || "false";
-                    this.x = x || 200;
-                    this.y = 648;
+                    this.x = x || 150;
+                    this.y = 486;
                     this.iC = a || false;
                     
                 };
@@ -98,15 +107,15 @@
                 Button.prototype.draw = function() {
                     stroke(255, 255, 255);
                     fill(0, 0, 0);
-                    rect(this.x, this.y, 380, 280);
-                    textSize(40);
+                    rect(this.x, this.y, 285, 210);
+                    textSize(30);
                     fill(255, 255, 255);
                     text(this.l, this.x, this.y);
                     
                 };
                 
                 Button.prototype.moused = function(){
-                    if(mouseX >= this.x-190 && mouseX <= this.x+190){if(mouseY >= this.y-140 && mouseY <= this.y+140){
+                    if(mouseX >= this.x-143 && mouseX <= this.x+143){if(mouseY >= this.y-105 && mouseY <= this.y+105){
                             if(this.iC){
                                 s++;
                             }
@@ -120,40 +129,40 @@
                     }
                 };
                 
-                var b1 = new Button(1,"true", 600, false);
-                var b2 = new Button(1,"false", 200, true);
-                var b3 = new Button(2,"Genetic Modification", 600, true);
-                var b4 = new Button(2,"Good Men", 200, false);
-                var b5 = new Button(3,"decrease in economy", 600, false);
-                var b6 = new Button(3,"increase in economy", 200, true);
-                var b7 = new Button(4,"true", 600, true);
-                var b8 = new Button(4,"false", 200, false);
-                var b9 = new Button(5,"true", 600, false);
-                var b10 = new Button(5,"false", 200, true);
+                var b1 = new Button(1,"true", 450, false);
+                var b2 = new Button(1,"false", 150, true);
+                var b3 = new Button(2,"Genetic Modification", 450, true);
+                var b4 = new Button(2,"Good Men", 150, false);
+                var b5 = new Button(3,"decrease in economy", 450, false);
+                var b6 = new Button(3,"increase in economy", 150, true);
+                var b7 = new Button(4,"true", 450, true);
+                var b8 = new Button(4,"false", 150, false);
+                var b9 = new Button(5,"true", 450, false);
+                var b10 = new Button(5,"false", 150, true);
                 var b =[b1,b2,b3,b4,b5,b6,b7,b8,b9,b10];
                 
                 draw = function(){
                     background(0, 0, 0);
                     stroke(255, 255, 255);
                     fill(0, 0 ,0)
-                    rect(400, 400, 780, 780)
+                    rect(300, 300, 585, 585)
                     
-                    textSize(80);
+                    textSize(60);
                     fill(255, 255, 255);
-                    text("Quiz!", 400, 60);
+                    text("Quiz!", 300, 45);
                     
-                    textSize(40);
+                    textSize(30);
                     fill(255,255,255)
                     
                     if( !q6[1]){
-                        text(q[i][0], 400, 200)
+                        text(q[i][0], 350, 150)
                         b[j].draw();
                         b[j+1].draw();
                     }
                     else{
-                        text("You got:", 400, 400);
-                        text(s, 400, 440);
-                        text("questions correct", 400, 480);
+                        text("You got:", 300, 300);
+                        text(s, 300, 330);
+                        text("questions correct", 300, 360);
                     }
                     
                     
